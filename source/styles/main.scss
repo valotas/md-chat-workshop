@@ -1,0 +1,180 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+
+@import "settings/site";
+@import "settings/foundation";
+@import "foundation/scss/normalize";
+@import "foundation/scss/foundation";
+@import "compass-mixins/lib/compass/css3";
+@import "modules";
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.off-canvas-wrap {
+  overflow: hidden;
+}
+
+nav.tab-bar {
+  .title {
+    background-image: url("/images/md-logo-large.png");
+    background-repeat: no-repeat;
+    background-size: 35px auto;
+    background-position: 0 6px;
+    padding-left: 40px;
+  }
+}
+
+code {
+  color: $color-red;
+}
+
+[class|="section"] {
+  margin-top: scale-up(2, 1rem);
+
+  > [class|="module"] {
+    @include grid-row();
+
+    > header {
+      @include grid-column(12);
+    }
+
+    > .content {
+      @include grid-column(12);
+    }
+  }
+}
+
+.user-list > .user {
+  > a {
+    > .user-image {
+      display: inline-block;
+
+      > img {
+        @include border-radius(50%);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  &[class*="status"] {
+    > a:after {
+      content: "";
+      display: inline-block;
+      padding: 0.2rem;
+      font-size: rem-calc(13);
+      font-weight: bold;
+      color: white;
+    }
+
+    &.status-online > a:after {
+      content: "online";
+      background-color: $color-green;
+    }
+
+    &.status-away > a:after {
+      content: "away";
+      background-color: $color-orange;
+    }
+
+    &.status-offline > a:after {
+      content: "offline";
+      background-color: $color-red;
+    }
+  }
+}
+
+.module-send-message > .content {
+  @include clearfix();
+
+  textarea {
+    resize: none;
+    float: left;
+    width: calc(100% - 100px);
+    height: scale-up(4, 1rem);
+  }
+
+  .button {
+    float: left;
+    width: 100px;
+    height: scale-up(4, 1rem);
+  }
+}
+
+.module-messages > .content > .message {
+  @include clearfix();
+
+  padding: 1rem;
+  background-color: lighten($color-grey, 15%);
+  border-radius: 1rem;
+  position: relative;
+  margin-bottom: 3rem;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    right: 4rem;
+    border: 2rem solid transparent;
+    border-left: 0;
+    border-top-color: lighten($color-grey, 15%);
+  }
+
+  > .user-image {
+    float: left;
+    width: 60px;
+    height: 60px;
+
+    > img {
+      @include border-radius(50%);
+      border: 3px solid rgba(0, 0, 0, 0.1);
+    }
+
+    @media #{$medium-up} {
+      width: 80px;
+      height: 80px;
+
+      > img {
+        border: 5px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  > .message-content {
+    float: left;
+    margin-left: 1rem;
+
+    > .message-user {
+      text-transform: uppercase;
+      font-size: scale-up(1, 1rem);
+    }
+
+    > .message-time {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    > .message-text {
+      margin-top: scale-up(1, 1em);
+    }
+  }
+}

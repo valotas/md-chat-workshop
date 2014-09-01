@@ -1,0 +1,17 @@
+{
+  "name": "md-chat",
+  "version": "0.1.0",
+  "dependencies": {
+    "json3": "~3.2.6",
+    "es5-shim": "~2.1.0",
+    "foundation": "~5.1.1",
+    "compass-mixins": "~1.0.0",
+    "angular": "~1.2.16",
+    "js-md5": "~1.1.0",
+    "firebase": "~1.0.15",
+    "angularfire": "~0.7.1",
+    "moment": "~2.6.0",
+    "ifvisible.js": "~1.0.1",
+    "marked": "~0.3.2"
+  }
+}

@@ -1,0 +1,193 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Markdown Chat</title>
+  <meta name="description" content="An HTML5 chat based on Angular.js, firebase.io and PhoneGap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- build:css({.tmp,source}) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+
+
+<!-- Wrapper layout for global side menu -->
+<div class="off-canvas-wrap chat-page" data-offcanvas>
+  <div class="inner-wrap">
+    <!-- Top navigation -->
+    <nav class="tab-bar">
+      <section class="left-small" ng-show="isLoggedIn">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Markdown Chat</h1>
+      </section>
+    </nav>
+
+    <!-- Side menu -->
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Settings</label></li>
+        <li><a href="#">Logout</a></li>
+        <li><a href="#">Change profile</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+      <ul class="off-canvas-list user-list">
+        <li><label>User list</label></li>
+        <li class="user status-online">
+          <a href="#">
+            <div class="user-image">
+              <img src="http://s.gravatar.com/avatar/bc63564d29408acdb01fa09ea11797ac?s=40" />
+            </div>
+            <span class="user-name">Thomas Hug</span>
+          </a>
+        </li>
+        <li class="user status-away">
+          <a href="#">
+            <div class="user-image">
+              <img src="http://s.gravatar.com/avatar/de13898b827f3227a9f9f31eb90a2367?s=40" />
+            </div>
+            <span class="user-name">Bartosz Majsak</span>
+          </a>
+        </li>
+        <li class="user status-offline">
+          <a href="#">
+            <div class="user-image">
+              <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=40" />
+            </div>
+            <span class="user-name">Gion Kunz</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main application -->
+    <section class="main-section">
+      <form name="loginForm">
+        <section class="section-login">
+          <article class="module-login">
+            <header>
+              <h3>Get me into the chat</h3>
+            </header>
+            <div class="content login-controls">
+              <label>User name
+                <input name="userName" type="text" placeholder="Enter your desired user name" required>
+              </label>
+              <p class="alert-box alert">
+                Please enter a valid username with a minimum length of 3 characters.
+              </p>
+              <label>Email address
+                <input name="email" type="email" placeholder="No spam. Promised!" required>
+              </label>
+              <p class="alert-box alert">
+                Please enter a valid email address.
+              </p>
+              <button class="button">Login</button>
+            </div>
+          </article>
+        </section>
+      </form>
+
+      <section class="section-intro">
+        <article class="module-intro">
+          <header>
+            <h3>Welcome to markdown chat</h3>
+          </header>
+          <div class="content">
+            <p>Just enter your email address and your user name and then start chatting. Use markdown syntax to post your chat messages. If you like to change your user profile image you can do so using <a href="https://www.gravatar.com" target="_blank">Gravatar</a>.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-chat">
+        <section class="module-send-message">
+          <header>
+            <h2>Send message</h2>
+          </header>
+          <div class="content">
+            <textarea placeholder="Write your message..."></textarea>
+            <button class="button">Send</button>
+          </div>
+        </section>
+
+        <section class="module-messages">
+          <header>
+            <h2>Messages</h2>
+          </header>
+          <div class="content">
+            <article class="message">
+              <div class="user-image">
+                <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=80" />
+              </div>
+              <div class="message-content">
+                <div class="message-user">Gion</div>
+                <time class="message-time" datetime="2014-01-01 19:00">1 second ago</time>
+                <p class="message-text">Hi there!</p>
+              </div>
+            </article>
+
+            <article class="message">
+              <div class="user-image">
+                <img src="http://s.gravatar.com/avatar/bc63564d29408acdb01fa09ea11797ac?s=80" />
+              </div>
+              <div class="message-content">
+                <div class="message-user">Tom</div>
+                <time class="message-time" datetime="2014-01-01 19:00">2 seconds ago</time>
+                <p class="message-text">Hello World!</p>
+              </div>
+            </article>
+
+            <article class="message">
+              <div class="user-image">
+                <img src="http://s.gravatar.com/avatar/de13898b827f3227a9f9f31eb90a2367?s=80" />
+              </div>
+              <div class="message-content">
+                <div class="message-user">Bartosz</div>
+                <time class="message-time" datetime="2014-01-01 19:00">5 minutes ago</time>
+                <p class="message-text">What's up?</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+
+
+
+<!--[if lt IE 9]>
+<!-- build:js(source) scripts/oldie.js -->
+<script src="/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/bower_components/json3/lib/json3.min.js"></script>
+<!-- endbuild -->
+<![endif]-->
+
+<!-- build:js(source/bower_components) scripts/vendor.js -->
+<script src="../bower_components/marked/lib/marked.js"></script>
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js(source) scripts/scripts.js -->
+<script src="/scripts/main.js"></script>
+<script src="/scripts/app.js"></script>
+<!-- endbuild -->
+</body>
+</html>
