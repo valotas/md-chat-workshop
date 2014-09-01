@@ -120,8 +120,8 @@
             <h2>Send message</h2>
           </header>
           <div class="content">
-            <textarea placeholder="Write your message..."></textarea>
-            <button class="button">Send</button>
+            <textarea placeholder="Write your message..." ng-model="messageText"></textarea>
+            <button class="button" ng-click="sendMessage()">Send</button>
           </div>
         </section>
 
