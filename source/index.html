@@ -47,28 +47,12 @@
       </ul>
       <ul class="off-canvas-list user-list">
         <li><label>User list</label></li>
-        <li class="user status-online">
+        <li class="user status-{{user.presence}}" ng-repeat="(userName, user) in chat.users">
           <a href="#">
             <div class="user-image">
               <img src="http://s.gravatar.com/avatar/bc63564d29408acdb01fa09ea11797ac?s=40" />
             </div>
-            <span class="user-name">Thomas Hug</span>
-          </a>
-        </li>
-        <li class="user status-away">
-          <a href="#">
-            <div class="user-image">
-              <img src="http://s.gravatar.com/avatar/de13898b827f3227a9f9f31eb90a2367?s=40" />
-            </div>
-            <span class="user-name">Bartosz Majsak</span>
-          </a>
-        </li>
-        <li class="user status-offline">
-          <a href="#">
-            <div class="user-image">
-              <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=40" />
-            </div>
-            <span class="user-name">Gion Kunz</span>
+            <span class="user-name">{{ user.userName }}</span>
           </a>
         </li>
       </ul>
