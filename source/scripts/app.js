@@ -2,13 +2,19 @@
   'use strict';
 
   // Our main application module
-  angular.module('chatApp', [])
+  angular.module('chatApp', ['firebase'])
 
-    .factory('chatService', function ($rootScope) {
-      var connected = false;
+    .constant('chatDbUrl', 'https://ctpwebtech.firebaseio.com/')
+
+    .factory('chatService', function ($firebase, $rootScope, chatDbUrl) {
+      var chatRef,
+        connected = false;
 
       // Login service function
       function login() {
+        chatRef = new window.Firebase(chatDbUrl + 'chat');
+        var firebase = $firebase(chatRef, $rootScope, 'chat');
+        firebase.$bind($rootScope, 'chat');
         connected = true;
         $rootScope.$broadcast('connected');
       }
@@ -56,9 +62,6 @@
       $scope.$on('disconnected', function () {
         $scope.isLoggedIn = false;
       });
-
-      // Temporary chat object in scope for local testing
-      $scope.chat = {};
 
       // Sending a message
       $scope.sendMessage = function () {
