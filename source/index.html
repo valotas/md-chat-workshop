@@ -130,36 +130,14 @@
             <h2>Messages</h2>
           </header>
           <div class="content">
-            <article class="message">
+            <article class="message" ng-repeat="message in chat.messages">
               <div class="user-image">
                 <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=80" />
               </div>
               <div class="message-content">
-                <div class="message-user">Gion</div>
-                <time class="message-time" datetime="2014-01-01 19:00">1 second ago</time>
-                <p class="message-text">Hi there!</p>
-              </div>
-            </article>
-
-            <article class="message">
-              <div class="user-image">
-                <img src="http://s.gravatar.com/avatar/bc63564d29408acdb01fa09ea11797ac?s=80" />
-              </div>
-              <div class="message-content">
-                <div class="message-user">Tom</div>
-                <time class="message-time" datetime="2014-01-01 19:00">2 seconds ago</time>
-                <p class="message-text">Hello World!</p>
-              </div>
-            </article>
-
-            <article class="message">
-              <div class="user-image">
-                <img src="http://s.gravatar.com/avatar/de13898b827f3227a9f9f31eb90a2367?s=80" />
-              </div>
-              <div class="message-content">
-                <div class="message-user">Bartosz</div>
-                <time class="message-time" datetime="2014-01-01 19:00">5 minutes ago</time>
-                <p class="message-text">What's up?</p>
+                <div class="message-user">{{ message.user.userName }}</div>
+                <time class="message-time" datetime="{{ message.time }}">{{ message.time }}</time>
+                <p class="message-text">{{ message.text }}</p>
               </div>
             </article>
           </div>
