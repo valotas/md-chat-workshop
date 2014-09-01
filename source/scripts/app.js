@@ -56,6 +56,25 @@
       $scope.$on('disconnected', function () {
         $scope.isLoggedIn = false;
       });
+
+      // Temporary chat object in scope for local testing
+      $scope.chat = {};
+
+      // Sending a message
+      $scope.sendMessage = function () {
+        // If there are no messages yet, we create the messages array
+        $scope.chat.messages = $scope.chat.messages || [];
+
+        $scope.chat.messages.push(
+          {
+            user: $scope.credentials,
+            text: $scope.messageText,
+            time: new Date()
+          }
+        );
+        // Reset our message value that we use in the input binding
+        $scope.messageText = '';
+      };
     });
 
 }(window, jQuery));
