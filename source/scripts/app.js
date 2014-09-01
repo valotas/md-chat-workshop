@@ -8,19 +8,38 @@
 
     .factory('chatService', function ($firebase, $rootScope, chatDbUrl) {
       var chatRef,
+        connRef,
+        userRef,
         connected = false;
 
-      // Login service function
-      function login() {
+      // Login service function that establishes a connection to firebase and registers onDisconnect hook
+      function login(credentials) {
         chatRef = new window.Firebase(chatDbUrl + 'chat');
-        var firebase = $firebase(chatRef, $rootScope, 'chat');
-        firebase.$bind($rootScope, 'chat');
-        connected = true;
-        $rootScope.$broadcast('connected');
+        connRef = new window.Firebase(chatDbUrl + '.info/connected');
+        userRef = new window.Firebase(chatDbUrl + 'chat/users/' + credentials.userName);
+
+        connRef.on('value', function (snapshot) {
+          if (snapshot.val()) {
+            userRef.onDisconnect().remove();
+            userRef.set({
+              presence: 'online',
+              userName: credentials.userName,
+              email: credentials.email
+            });
+
+            var firebase = $firebase(chatRef, $rootScope, 'chat');
+            firebase.$bind($rootScope, 'chat');
+            connected = true;
+
+            $rootScope.$broadcast('connected');
+          }
+        });
       }
 
       // Logout function that disconnects all firebase connections and updates the internal state
       function logout() {
+        window.Firebase.goOffline();
+        chatRef = connRef = userRef = null;
         connected = false;
         $rootScope.$broadcast('disconnected');
       }
