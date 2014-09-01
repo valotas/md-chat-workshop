@@ -24,7 +24,7 @@
 
 
 <!-- Wrapper layout for global side menu -->
-<div class="off-canvas-wrap chat-page" data-offcanvas>
+<div class="off-canvas-wrap chat-page" data-offcanvas ng-app="chatApp" ng-controller="ChatCtrl" ng-cloak>
   <div class="inner-wrap">
     <!-- Top navigation -->
     <nav class="tab-bar">
@@ -41,7 +41,7 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Settings</label></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="#" ng-click="logout()">Logout</a></li>
         <li><a href="#">Change profile</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -77,31 +77,33 @@
     <!-- Main application -->
     <section class="main-section">
       <form name="loginForm">
-        <section class="section-login">
+        <section class="section-login" ng-hide="isLoggedIn">
           <article class="module-login">
             <header>
               <h3>Get me into the chat</h3>
             </header>
             <div class="content login-controls">
               <label>User name
-                <input name="userName" type="text" placeholder="Enter your desired user name" required>
+                <input name="userName" type="text" placeholder="Enter your desired user name" required
+                       ng-model="credentials.userName">
               </label>
               <p class="alert-box alert">
                 Please enter a valid username with a minimum length of 3 characters.
               </p>
               <label>Email address
-                <input name="email" type="email" placeholder="No spam. Promised!" required>
+                <input name="email" type="email" placeholder="No spam. Promised!" required
+                       ng-model="credentials.email">
               </label>
               <p class="alert-box alert">
                 Please enter a valid email address.
               </p>
-              <button class="button">Login</button>
+              <button class="button" ng-click="login()">Login</button>
             </div>
           </article>
         </section>
       </form>
 
-      <section class="section-intro">
+      <section class="section-intro" ng-hide="isLoggedIn">
         <article class="module-intro">
           <header>
             <h3>Welcome to markdown chat</h3>
@@ -112,7 +114,7 @@
         </article>
       </section>
 
-      <section class="section-chat">
+      <section class="section-chat" ng-show="isLoggedIn">
         <section class="module-send-message">
           <header>
             <h2>Send message</h2>
