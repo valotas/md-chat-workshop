@@ -69,19 +69,20 @@
             <div class="content login-controls">
               <label>User name
                 <input name="userName" type="text" placeholder="Enter your desired user name" required
-                       ng-model="credentials.userName">
+                       ng-class="{error: loginForm.userName.$dirty && !loginForm.userName.$valid}"
+                       ng-model="credentials.userName" ng-minlength="3">
               </label>
-              <p class="alert-box alert">
+              <p class="alert-box alert" ng-show="loginForm.userName.$dirty && !loginForm.userName.$valid">
                 Please enter a valid username with a minimum length of 3 characters.
               </p>
               <label>Email address
                 <input name="email" type="email" placeholder="No spam. Promised!" required
-                       ng-model="credentials.email">
+                       ng-class="{error: loginForm.email.$dirty && !loginForm.email.$valid}" ng-model="credentials.email">
               </label>
-              <p class="alert-box alert">
+              <p class="alert-box alert" ng-show="loginForm.email.$dirty && !loginForm.email.$valid">
                 Please enter a valid email address.
               </p>
-              <button class="button" ng-click="login()">Login</button>
+              <button class="button" ng-click="login()" ng-disabled="!loginForm.$valid">Login</button>
             </div>
           </article>
         </section>
