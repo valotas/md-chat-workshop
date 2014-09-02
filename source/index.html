@@ -115,13 +115,13 @@
             <h2>Messages</h2>
           </header>
           <div class="content">
-            <article class="message" ng-repeat="message in chat.messages">
+            <article class="message" ng-repeat="message in chat.messages | reverse">
               <div class="user-image">
                 <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=80" />
               </div>
               <div class="message-content">
                 <div class="message-user">{{ message.user.userName }}</div>
-                <time class="message-time" datetime="{{ message.time }}">{{ message.time }}</time>
+                <time class="message-time" datetime="{{ message.time }}">{{ message.time | fromNow }}</time>
                 <p class="message-text">{{ message.text }}</p>
               </div>
             </article>

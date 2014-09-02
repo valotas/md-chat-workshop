@@ -2,7 +2,7 @@
   'use strict';
 
   // Our main application module
-  angular.module('chatApp', ['firebase'])
+  angular.module('chatApp', ['utilities', 'firebase'])
 
     .constant('chatDbUrl', 'https://ctpwebtech.firebaseio.com/')
 
@@ -113,6 +113,24 @@
       window.ifvisible.on('wakeup', function () {
         chatService.updatePresence('online');
       });
+    });
+
+  angular.module('utilities', [])
+
+    .filter('reverse', function () {
+      return function (input) {
+        if(input) {
+          return input.slice().reverse();
+        } else {
+          return input;
+        }
+      };
+    })
+
+    .filter('fromNow', function () {
+      return function (input) {
+        return window.moment(input).fromNow();
+      };
     });
 
 }(window, jQuery));
