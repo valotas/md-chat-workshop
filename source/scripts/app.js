@@ -2,7 +2,7 @@
   'use strict';
 
   // Our main application module
-  angular.module('chatApp', ['utilities', 'firebase'])
+  angular.module('chatApp', ['utilities', 'gravatar', 'firebase'])
 
     .constant('chatDbUrl', 'https://ctpwebtech.firebaseio.com/')
 
@@ -130,6 +130,26 @@
     .filter('fromNow', function () {
       return function (input) {
         return window.moment(input).fromNow();
+      };
+    });
+
+  angular.module('gravatar', [])
+    // Simple filter that uses a global md5 function to return md5 string of input
+    .filter('md5', function () {
+      return function (input) {
+        return window.md5(input);
+      };
+    })
+    // Our gravatar avatar directive that dynamically creates a gravatar image based on attributes
+    .directive('gravAvatar', function () {
+      return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+          gravEmail: '@',
+          gravSize: '@'
+        },
+        template: '<img ng-attr-src="http://gravatar.com/avatar/{{gravEmail | md5}}?s={{ gravSize || 80 }}">'
       };
     });
 
