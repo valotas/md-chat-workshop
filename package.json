@@ -57,6 +57,9 @@
         "source/bower_components/jquery/dist/jquery.min.js",
         "source/bower_components/fastclick/lib/fastclick.js",
         "source/bower_components/foundation/js/foundation.min.js",
+        "source/bower_components/angular/angular.min.js",
+        "source/bower_components/firebase/firebase.js",
+        "source/bower_components/angularfire/angularfire.min.js",
         "source/scripts/**/*.js"
       ]
     }
