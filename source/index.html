@@ -50,7 +50,7 @@
         <li class="user status-{{user.presence}}" ng-repeat="(userName, user) in chat.users">
           <a href="#">
             <div class="user-image">
-              <img src="http://s.gravatar.com/avatar/bc63564d29408acdb01fa09ea11797ac?s=40" />
+              <grav-avatar grav-email="{{ user.email }}" grav-size="40"></grav-avatar>
             </div>
             <span class="user-name">{{ user.userName }}</span>
           </a>
@@ -117,7 +117,7 @@
           <div class="content">
             <article class="message" ng-repeat="message in chat.messages | reverse">
               <div class="user-image">
-                <img src="http://s.gravatar.com/avatar/2fda6c85ea083c45727c6131be71accf?s=80" />
+                <grav-avatar grav-email="{{ message.user.email }}"></grav-avatar>
               </div>
               <div class="message-content">
                 <div class="message-user">{{ message.user.userName }}</div>
