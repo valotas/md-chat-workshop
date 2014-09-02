@@ -2,7 +2,7 @@
   'use strict';
 
   // Our main application module
-  angular.module('chatApp', ['utilities', 'gravatar', 'firebase'])
+  angular.module('chatApp', ['utilities', 'gravatar', 'markdown', 'firebase'])
 
     .constant('chatDbUrl', 'https://ctpwebtech.firebaseio.com/')
 
@@ -150,6 +150,24 @@
           gravSize: '@'
         },
         template: '<img ng-attr-src="http://gravatar.com/avatar/{{gravEmail | md5}}?s={{ gravSize || 80 }}">'
+      };
+    });
+
+  angular.module('markdown', [])
+    // A filter that uses markdownService to compile markdown to HTML and returns trusted HTML using the Strict Contextual Escaping
+    .filter('markdown', function ($sce, markdownService) {
+      return function (input) {
+        return $sce.trustAsHtml(markdownService.generateMarkdown(input));
+      };
+    })
+    // A factory that returns a function to compile html from markdown using the marked js library
+    .factory('markdownService', function () {
+      function generateMarkdown(input) {
+        return window.marked(input);
+      }
+
+      return {
+        generateMarkdown: generateMarkdown
       };
     });
 
