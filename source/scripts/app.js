@@ -48,10 +48,18 @@
         return connected;
       }
 
+      // If connected updates the presence state
+      function updatePresence(state) {
+        if (connected) {
+          userRef.child('presence').set(state);
+        }
+      }
+
       return {
         login: login,
         logout: logout,
-        isLoggedIn: isLoggedIn
+        isLoggedIn: isLoggedIn,
+        updatePresence: updatePresence
       };
     })
 
@@ -97,6 +105,14 @@
         // Reset our message value that we use in the input binding
         $scope.messageText = '';
       };
+
+      // Adding presence handling with ifvisible.js
+      window.ifvisible.on('idle', function () {
+        chatService.updatePresence('away');
+      });
+      window.ifvisible.on('wakeup', function () {
+        chatService.updatePresence('online');
+      });
     });
 
 }(window, jQuery));
