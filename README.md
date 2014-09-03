@@ -52,7 +52,7 @@ For more options visit https://github.com/creationix/nvm
 
 You can clone the repository and install the MD Chat with the following steps:
 
-    git clone https://github.com/gionkunz/md-chat.git
+    git clone https://github.com/gionkunz/md-chat-workshop.git
     cd md-chat
     sudo npm install -g bower grunt-cli
     npm install

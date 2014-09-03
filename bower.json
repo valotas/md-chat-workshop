@@ -1,5 +1,5 @@
 {
-  "name": "md-chat",
+  "name": "md-chat-workshop",
   "version": "0.1.0",
   "dependencies": {
     "json3": "~3.2.6",

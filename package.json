@@ -1,8 +1,8 @@
 {
-  "name": "md-chat",
+  "name": "md-chat-workshop",
   "description": "An HTML5 chat based on Angular.js and firebase.io",
   "version": "0.1.0",
-  "repository": "https://github.com/gionkunz/md-chat.git",
+  "repository": "https://github.com/gionkunz/md-chat-workshop.git",
   "dependencies": {},
   "devDependencies": {
     "jshint-stylish": "~0.2.0",
