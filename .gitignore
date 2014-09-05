@@ -6,3 +6,4 @@ temp
 test/.results
 npm-debug.log
 source/bower_components
+.idea
