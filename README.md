@@ -50,7 +50,15 @@ For more options visit https://github.com/creationix/nvm
 
 ## Installation of the MD Chat
 
-You can clone the repository and install the MD Chat with the following steps:
+First you need to install bower and grunt global:
+
+    sudo npm install -g bower grunt-cli
+
+Then you can use the setup script:
+
+    curl -L http://goo.gl/KOd2DZ | sh
+
+Or you can clone the repository and install the MD Chat manually the following steps:
 
     git clone https://github.com/gionkunz/md-chat-workshop.git
     cd md-chat
