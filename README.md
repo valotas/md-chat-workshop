@@ -1,4 +1,4 @@
-# MD Chat - An HTML5 chat based on Angular.js, firebase.io and PhoneGap
+# MD Chat Workshop - An HTML5 chat based on Angular.js, firebase.io
 
 md-chat is based on a simple Grunt.js stack that includes:
 
@@ -14,14 +14,27 @@ md-chat is based on a simple Grunt.js stack that includes:
 
 ## Pre-requisites
 
-In order to use this stack Node.js and NPM needs to be installed on your machine. In order to use SASS with Compass
-also Ruby and Compass needs to be installed.
+In general all you need to be prepared for this project and the workshop are 3 things:
 
-Also it's assumed that you have GIT installed.
+- Node.js
+- GIT
+- Text editor of your choice
 
-> If you're running with a Linux environment you might want to change the max file handles a user can allocate. The
-underlying front-end stack is using grunt-watch which is heavily relying on open file handles.
-`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
+You can Install these three software components on any operating system without bigger issues. We recommend however, to 
+use the pre-installed VM that is provided for the /ch/open workshop.
+
+## Using a VM prepared for the workshop at /ch/open 
+
+In the context of the /ch/open workshop we have prepared a VM (VMWare player image) for you that you can use for the 
+workshop. All tools that you need are already pre-installed and you don't need to follow any further steps down in the 
+
+1. First you need to download [https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0](VMWare Player):
+2. Download [http://images.workshoptage.ch/images/ws5/ws-5.zip](the VM Zip file) from the /ch/open server and extract into a folder on your machine (The VM is totally around 7 GB)
+3. Import the VM into VMWare Player by opening the .vmx file
+4. Start the VM to make sure everything is okay
+
+Now you're set and prepared for the workshop. If you've installed the VM there are no more steps to follow.
+
 
 ### Node.js
 
@@ -70,6 +83,10 @@ Or you can clone the repository and install the MD Chat manually the following s
 
 You can use the stack in two modes. You can run it as a server for development with livereload or you can use the stack
 to build a package ready for distribution.
+
+> If you're running with a Linux environment you might want to change the max file handles a user can allocate. The
+underlying front-end stack is using grunt-watch which is heavily relying on open file handles.
+`echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
 ### Distribution build
 
