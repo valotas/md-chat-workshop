@@ -8,7 +8,7 @@ then
   git checkout master
 else
   cd $HOME/md-chat-workshop
-  git pull-all
+  git pull --all --rebase
 fi
  
 cd $HOME/md-chat-workshop
