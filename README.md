@@ -28,8 +28,8 @@ use the pre-installed VM that is provided for the /ch/open workshop.
 In the context of the /ch/open workshop we have prepared a VM (VMWare player image) for you that you can use for the 
 workshop. All tools that you need are already pre-installed and you don't need to follow any further steps down in the 
 
-1. First you need to download [https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0](VMWare Player):
-2. Download [http://images.workshoptage.ch/images/ws5/ws-5.zip](the VM Zip file) from the /ch/open server and extract into a folder on your machine (The VM is totally around 7 GB)
+1. First you need to download [VMWare Player](https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_player/6_0):
+2. Download [the VM Zip file](http://images.workshoptage.ch/images/ws5/ws-5.zip) from the /ch/open server and extract into a folder on your machine (The VM is totally around 7 GB)
 3. Import the VM into VMWare Player by opening the .vmx file
 4. Start the VM to make sure everything is okay
 
