@@ -125,3 +125,5 @@ If you'd like to run only the unit test you can start grunt with the task `test`
 
     grunt test
 
+## Navigating the code
+There are already some branches prefixed with `step-` which represents a state of the workshop. Users with git experience can check them out directly. Otherwise there is the `step.sh` script available which can be used with a number (ex. `./step.sh 1`) and it will try to apply all your changes to the step you are about to checkout (in our example `step-1`).
